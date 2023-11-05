@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-cron.css">
+    <link rel="icon" href="/img/logo png.png" type="image/x-icon">
+    <title>Cronômetro Digital - Davi Diaz</title>
+</head>
+
+<body>
+    <div class="Cronômetro">
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span class="tempo">Horas</span>
+            </div>
+            <div>
+                <span id="minutos">00</span>
+                <span class="tempo">Minutos</span>
+            </div>
+            <div>
+                <span id="segundos">00</span>
+                <span class="tempo">Segundos</span>
+            </div>
+        </div>
+        <div class="input-value">
+            <label for="tempoInput">&nbsp;</label>
+            <input type="number" id="tempoInput" title="Tempo">
+        </div>
+        <div class="button-cronometro-corner">
+            <button id="iniciar" class="button-cronometro">Iniciar</button>
+            <button id="pausar" class="button-cronometro">Pausar</button>
+            <button id="zerar" class="button-cronometro">Zerar</button>
+        </div>
+    </div>
+    <button class="fullscreen-btn" id="fullscreen-btn" title="Full-screen"></button>
+    <script src="script_cronometro.js"></script>
+</body>
+</html>

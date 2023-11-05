@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(120deg, #000000, #171717);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.input-value {
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0.1;
+}
+
+.button-c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+    /* Alinhar no canto inferior direito */
+}
+
+.button-cronometro {
+    background-color: black;
+    color: white;
+    margin: 5px;
+}
+
+.button-cronometro-corner {
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    opacity: 0.04; 
+    background: transparent; 
+    border: none; 
+    right: 10px;
+}
+#tempoInput {
+    border: none;
+    border-radius: 3px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100px;
+    margin: 10px auto;
+    /* Centraliza verticalmente e horizontalmente */
+    display: block;
+    /* Transforma em bloco para aplicar as margens corretamente */
+}
+.relogio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    width: 550px;
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.relogio div {
+    height: 170px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    background-color: rgba(5, 5, 5, 0.9);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+    border: 7px solid transparent;
+    letter-spacing: 3px;
+}
+
+.relogio span {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.relogio span.tempo {
+    font-size: 10px;
+}
+
+.fullscreen-btn {
+    display: none;
+    opacity: 1;
+    border: none;
+}
