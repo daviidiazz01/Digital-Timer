@@ -43,12 +43,6 @@ document.getElementById('zerar').addEventListener('click', function () {
     atualizarTempo();
     tempoInput.value = '';
 });
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === "r" || event.key === "R") {
-        window.location.href = "../index.html";
-    }
-});
 document.addEventListener('keydown', (event) => {
     if (event.key === 'f' || event.key === 'F') {
         const element = document.documentElement; // Referência ao elemento raiz (a página inteira) aqui
