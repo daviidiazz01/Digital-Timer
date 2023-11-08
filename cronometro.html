@@ -328,6 +328,13 @@
         document.getElementById('create-new').addEventListener('click', function () {
             tempoInput.value = '0'; // crie um novo
         });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "r" || event.key === "R") {
+                window.location.href = "/index.html ";
+            }
+        });
+        
     </script>
 </body>
 
