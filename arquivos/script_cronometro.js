@@ -65,5 +65,38 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const menu = document.querySelector('.menu');
+    if (menu.style.right === '0px' || menu.style.right === '') {
+        menu.style.right = '-250px';
+    } else {
+        menu.style.right = '0px';
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+  
+    menuToggle.addEventListener("click", function () {
+      menu.classList.toggle("show-menu");
+    });
+  });
+  
+
+document.getElementById('preset-1').addEventListener('click', function () {
+    tempoInput.value = '10'; //momento de oração antes do louvor
+});
+
+document.getElementById('preset-2').addEventListener('click', function () {
+    tempoInput.value = '25'; //Momento de louvor
+});
+
+document.getElementById('preset-3').addEventListener('click', function () {
+    tempoInput.value = '45'; //Momento ministração
+});
+
+document.getElementById('create-new').addEventListener('click', function () {
+    tempoInput.value = '0'; // crie um novo
+});
 
 
