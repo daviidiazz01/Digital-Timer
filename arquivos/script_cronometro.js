@@ -46,7 +46,7 @@ document.getElementById('zerar').addEventListener('click', function () {
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "r" || event.key === "R") {
-        window.location.href = "../DigitalWatch.html";
+        window.location.href = "../index.html";
     }
 });
 document.addEventListener('keydown', (event) => {
