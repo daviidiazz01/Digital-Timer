@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-cron.css">
+    <link rel="icon" href="/arquivos/img/logo png (1).png" type="image/x-icon">
+    <title>Cronômetro Digital - Davi Diaz</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(120deg, #000000, #171717);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .input-value {
+            margin-bottom: 20px;
+            text-align: center;
+            opacity: 0.1;
+        }
+
+        .button-c {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: flex-end;
+            /* Alinhar no canto inferior direito */
+        }
+
+        .button-cronometro {
+            background-color: black;
+            color: white;
+            margin: 5px;
+        }
+
+        .button-cronometro-corner {
+            background-color: black;
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            opacity: 0.04;
+            background: transparent;
+            border: none;
+            right: 10px;
+        }
+
+        #tempoInput {
+            border: none;
+            border-radius: 3px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            width: 100px;
+            margin: 10px auto;
+            /* Centraliza verticalmente e horizontalmente */
+            display: block;
+            /* Transforma em bloco para aplicar as margens corretamente */
+        }
+
+        .relogio {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 200px;
+            width: 550px;
+            background: transparent;
+            border-radius: 3px;
+            box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .relogio div {
+            height: 170px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            background-color: rgba(5, 5, 5, 0.9);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+            border: 7px solid transparent;
+            letter-spacing: 3px;
+        }
+
+        .relogio span {
+            font-weight: bolder;
+            font-size: 60px;
+        }
+
+        .relogio span.tempo {
+            font-size: 10px;
+        }
+
+        .fullscreen-btn {
+            display: none;
+            opacity: 1;
+            border: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            overflow-y: auto;
+            transition: 0.4s;
+
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        .menu-vazio {
+            opacity: 0;
+        }
+    </style>
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#" class="menu-vazio">-</a>
+                <ul>
+                    <li><a href="#" id="preset-1">Oração</a></li>
+                    <li><a href="#" id="preset-2">Louvor</a></li>
+                    <li><a href="#" id="preset-3">Ministração</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="Cronômetro">
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span class="tempo">Horas</span>
+            </div>
+            <div>
+                <span id="minutos">00</span>
+                <span class="tempo">Minutos</span>
+            </div>
+            <div>
+                <span id="segundos">00</span>
+                <span class="tempo">Segundos</span>
+            </div>
+        </div>
+        <div class="input-value">
+            <label for="tempoInput">&nbsp;</label>
+            <input type="number" id="tempoInput" title="Tempo">
+        </div>
+        <div class="button-cronometro-corner">
+            <button id="iniciar" class="button-cronometro">Iniciar</button>
+            <button id="pausar" class="button-cronometro">Pausar</button>
+            <button id="zerar" class="button-cronometro">Zerar</button>
+        </div>
+    </div>
+
+    <button class="fullscreen-btn" id="fullscreen-btn" title="Full-screen"></button>
+
+    <script>
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+        const tempoInput = document.getElementById('tempoInput');
+
+        let tempoTotal = 0;
+        let cronometro;
+
+        function atualizarTempo() {
+            const hr = Math.floor(tempoTotal / 3600);
+            const min = Math.floor((tempoTotal % 3600) / 60);
+            const seg = tempoTotal % 60;
+
+            horas.textContent = hr < 10 ? '0' + hr : hr;
+            minutos.textContent = min < 10 ? '0' + min : min;
+            segundos.textContent = seg < 10 ? '0' + seg : seg;
+        }
+
+        document.getElementById('iniciar').addEventListener('click', function () {
+            const minutosDefinidos = parseInt(tempoInput.value);
+            if (!isNaN(minutosDefinidos)) {
+                clearInterval(cronometro); // Limpa o intervalo anterior, se existir
+                tempoTotal = minutosDefinidos * 60; // Converter minutos em segundos
+                atualizarTempo();
+                cronometro = setInterval(function () {
+                    if (tempoTotal > 0) {
+                        tempoTotal--;
+                        atualizarTempo();
+                    } else {
+                        clearInterval(cronometro);
+                    }
+                }, 1000);
+            }
+        });
+
+        document.getElementById('pausar').addEventListener('click', function () {
+            clearInterval(cronometro);
+        });
+
+        document.getElementById('zerar').addEventListener('click', function () {
+            clearInterval(cronometro);
+            tempoTotal = 0;
+            atualizarTempo();
+            tempoInput.value = '';
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'f' || event.key === 'F') {
+                const element = document.documentElement; // Referência ao elemento raiz (a página inteira) aqui
+
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+            }
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const menu = document.querySelector('.menu');
+            if (menu.style.right === '0px' || menu.style.right === '') {
+                menu.style.right = '-250px';
+            } else {
+                menu.style.right = '0px';
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("show-menu");
+            });
+        });
+
+
+        document.getElementById('preset-1').addEventListener('click', function () {
+            tempoInput.value = '10'; //momento de oração antes do louvor
+        });
+
+        document.getElementById('preset-2').addEventListener('click', function () {
+            tempoInput.value = '25'; //Momento de louvor
+        });
+
+        document.getElementById('preset-3').addEventListener('click', function () {
+            tempoInput.value = '45'; //Momento ministração
+        });
+
+        document.getElementById('create-new').addEventListener('click', function () {
+            tempoInput.value = '0'; // crie um novo
+        });
+    </script>
+</body>
+
+</html>
