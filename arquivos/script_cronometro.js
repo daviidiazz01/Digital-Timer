@@ -51,7 +51,7 @@ document.addEventListener("keydown", function (event) {
 });
 document.addEventListener('keydown', (event) => {
     if (event.key === 'f' || event.key === 'F') {
-        const element = document.documentElement; // Referência ao elemento raiz (a página inteira)
+        const element = document.documentElement; // Referência ao elemento raiz (a página inteira) aqui
 
         if (element.requestFullscreen) {
             element.requestFullscreen();
