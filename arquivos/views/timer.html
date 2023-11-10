@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style_timer.css">
+    <link rel="icon" href="../img/logo-png-(1).png" type="image/x-icon">
+    <title>Cronômetro Digital - Davi Diaz</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="menu-none">
+        <nav class="menu">
+            <ul>
+                <li><a href="#" class="menu-vazio">-</a>
+                    <ul>
+                        <li><a href="#" id="preset-1">Oração</a></li>
+                        <li><a href="#" id="preset-2">Louvor</a></li>
+                        <li><a href="#" id="preset-3">Ministração</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <label for="text-input-information">Digite aqui o valor!</label>
+                    <br>
+                    <input type="number" id="text-input-information">
+                </li>
+                <li>
+                    <button id="iniciar-cronometro" class="button-cronometro">Iniciar</button>
+                </li>
+                <li>
+                    <button id="pausar-cronometro" class="button-cronometro">Pausar</button>
+                </li>
+                <li>
+                    <button id="zerar-cronometro" class="button-cronometro">Zerar</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="Cronômetro">
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span class="tempo">Horas</span>
+            </div>
+            <div>
+                <span id="minutos">00</span>
+                <span class="tempo">Minutos</span>
+            </div>
+            <div>
+                <span id="segundos">00</span>
+                <span class="tempo">Segundos</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="fullscreen-btn" id="fullscreen-btn" title="Full-screen"></button>
+
+    <script src="../js/script_timer.js"></script>
+    <script>
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+        const tempoInput = document.getElementById('text-input-information');
+
+        let tempoTotal = 0;
+        let cronometro;
+
+        function atualizarTempo() {
+            const hr = Math.floor(tempoTotal / 3600);
+            const min = Math.floor((tempoTotal % 3600) / 60);
+            const seg = tempoTotal % 60;
+
+            horas.textContent = hr < 10 ? '0' + hr : hr;
+            minutos.textContent = min < 10 ? '0' + min : min;
+            segundos.textContent = seg < 10 ? '0' + seg : seg;
+        }
+
+        document.getElementById('iniciar-cronometro').addEventListener('click', function () {
+            const minutosDefinidos = parseInt(tempoInput.value);
+            if (!isNaN(minutosDefinidos)) {
+                clearInterval(cronometro); // Limpa o intervalo anterior, se existir
+                tempoTotal = minutosDefinidos * 60; // Converter minutos em segundos
+                atualizarTempo();
+                cronometro = setInterval(function () {
+                    if (tempoTotal > 0) {
+                        tempoTotal--;
+                        atualizarTempo();
+                    } else {
+                        clearInterval(cronometro);
+                    }
+                }, 1000);
+            }
+        });
+
+        document.getElementById('pausar-cronometro').addEventListener('click', function () {
+            clearInterval(cronometro);
+        });
+
+        document.getElementById('zerar-cronometro').addEventListener('click', function () {
+            clearInterval(cronometro);
+            tempoTotal = 0;
+            atualizarTempo();
+            tempoInput.value = '';
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
+            const menu = document.querySelector('.menu');
+            menu.style.right = '0px';
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
+            const menu = document.querySelector('.menu');
+            menu.style.right = '-250px';
+        });
+
+        document.querySelector('.menu-none').addEventListener('mouseover', () => {
+            const menu = document.querySelector('.menu');
+            menu.style.right = '0px';
+        });
+
+        document.querySelector('.menu-none').addEventListener('mouseout', () => {
+            const menu = document.querySelector('.menu');
+            menu.style.right = '-250px';
+        });
+
+        document.getElementById('preset-1').addEventListener('click', function () {
+            tempoInput.value = '10'; //momento de oração antes do louvor
+        });
+
+        document.getElementById('preset-2').addEventListener('click', function () {
+            tempoInput.value = '25'; //Momento de louvor
+        });
+
+        document.getElementById('preset-3').addEventListener('click', function () {
+            tempoInput.value = '45'; //Momento ministração
+        });
+    </script>
+</body>
+
+</html>

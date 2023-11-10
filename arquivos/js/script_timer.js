@@ -1,7 +1,7 @@
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
 const segundos = document.getElementById('segundos');
-const tempoInput = document.getElementById('tempoInput');
+const tempoInput = document.getElementById('text-input-information');
 
 let tempoTotal = 0;
 let cronometro;
@@ -16,7 +16,7 @@ function atualizarTempo() {
     segundos.textContent = seg < 10 ? '0' + seg : seg;
 }
 
-document.getElementById('iniciar').addEventListener('click', function () {
+document.getElementById('iniciar-cronometro').addEventListener('click', function () {
     const minutosDefinidos = parseInt(tempoInput.value);
     if (!isNaN(minutosDefinidos)) {
         clearInterval(cronometro); // Limpa o intervalo anterior, se existir
@@ -33,49 +33,42 @@ document.getElementById('iniciar').addEventListener('click', function () {
     }
 });
 
-document.getElementById('pausar').addEventListener('click', function () {
+document.getElementById('pausar-cronometro').addEventListener('click', function () {
     clearInterval(cronometro);
 });
 
-document.getElementById('zerar').addEventListener('click', function () {
+document.getElementById('zerar-cronometro').addEventListener('click', function () {
     clearInterval(cronometro);
     tempoTotal = 0;
     atualizarTempo();
     tempoInput.value = '';
 });
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'f' || event.key === 'F') {
-        const element = document.documentElement; // Referência ao elemento raiz (a página inteira) aqui
 
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.mozRequestFullScreen) {
-            element.mozRequestFullScreen();
-        } else if (element.webkitRequestFullscreen) {
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) {
-            element.msRequestFullscreen();
-        }
+document.addEventListener("keydown", function (event) {
+    if (event.key === "r" || event.key === "R") {
+        window.location.href = "../../index.html";
     }
 });
 
-document.querySelector('.menu-toggle').addEventListener('click', () => {
+document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
     const menu = document.querySelector('.menu');
-    if (menu.style.right === '0px' || menu.style.right === '') {
-        menu.style.right = '-250px';
-    } else {
-        menu.style.right = '0px';
-    }
+    menu.style.right = '0px';
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".menu");
-  
-    menuToggle.addEventListener("click", function () {
-      menu.classList.toggle("show-menu");
-    });
-  });
-  
+
+document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '-250px';
+});
+
+document.querySelector('.menu-none').addEventListener('mouseover', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '0px';
+});
+
+document.querySelector('.menu-none').addEventListener('mouseout', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '-250px';
+});
 
 document.getElementById('preset-1').addEventListener('click', function () {
     tempoInput.value = '10'; //momento de oração antes do louvor
@@ -88,9 +81,3 @@ document.getElementById('preset-2').addEventListener('click', function () {
 document.getElementById('preset-3').addEventListener('click', function () {
     tempoInput.value = '45'; //Momento ministração
 });
-
-document.getElementById('create-new').addEventListener('click', function () {
-    tempoInput.value = '0'; // crie um novo
-});
-
-
