@@ -25,3 +25,23 @@ document.addEventListener("keydown", function (event) {
         window.location.href = "arquivos/views/timer.html";
     }
 });
+
+document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '0px';
+});
+
+document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '-250px';
+});
+
+document.querySelector('.menu-none').addEventListener('mouseover', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '0px';
+});
+
+document.querySelector('.menu-none').addEventListener('mouseout', () => {
+    const menu = document.querySelector('.menu');
+    menu.style.right = '-250px';
+});
