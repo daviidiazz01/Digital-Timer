@@ -94,7 +94,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha no topo */
+    justify-content: flex-start;
     padding-top: 20px;
 }
 
@@ -107,10 +107,25 @@ body {
 .menu li {
     margin-bottom: 10px;
 }
-.menu-transition{
-    list-style: none;
-    padding: 0;
-    cursor: pointer;
+
+.menu-transition {
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
     background-color: transparent;
-    
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.footer-water{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #332;
+    text-align: left;
+    padding: 10px;
+    color: white;
 }
