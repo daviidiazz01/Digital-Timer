@@ -19,13 +19,11 @@ const relogio = setInterval(function time() {
     segundos.textContent = s;
 
 })
-
 document.addEventListener("keydown", function (event) {
-    if (event.key === "t" || event.key === "T") {
-        window.location.href = "arquivos/views/timer.html";
+    if (event.key === "T" || event.key === "t") {
+        window.location.href = "/arquivos/views/timer.html";
     }
 });
-
 document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
     const menu = document.querySelector('.menu');
     menu.style.right = '0px';
