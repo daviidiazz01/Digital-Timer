@@ -108,8 +108,8 @@ body {
     color: white;
     margin: 5px;
     border: none;
-    width: 80%; 
-    
+    width: 80%;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
@@ -123,9 +123,67 @@ body {
     }
 }
 
-.menu-vazio {
-    opacity: 0;
-}
-.text-input{
+.text-input {
     color: white;
 }
+.value-box{
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    outline: none;
+}
+.menu-none {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-y: auto;
+    transition: 0.4s;
+    padding-top: 20px;
+    z-index: 998;
+}
+
+.menu-none .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px 0;
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+}
+
+.menu-none .menu ul {
+    width: 100%;
+}
+
+.menu-none .menu li {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    border-bottom: 1px solid #666;
+}
+
+.menu-none .menu a {
+    display: block;
+}
+.menu-vazio{
+    opacity: 0;
+}
+/* css menu-vazio é temporario, até apagar o ponto que o HTML não deixa tirar */
+
+.menu-none .button-cronometro {
+    width: calc(100% - 40px);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* css para excluir as setas de valores do input valor */
