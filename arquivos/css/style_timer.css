@@ -50,7 +50,7 @@ body {
 }
 
 .relogio span.tempo {
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .menu-toggle {
@@ -114,7 +114,13 @@ body {
     justify-content: center;
     height: 23px;
     width: 120px;
+    cursor: pointer;
 }
+.button-cronometro:hover {
+    background-color: gray;
+    color: black;
+}
+
 
 @media (max-width: 768px) {
     .menu-toggle {

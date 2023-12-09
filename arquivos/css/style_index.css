@@ -43,12 +43,12 @@ body {
 
 .relogio span {
     font-weight: bolder;
-    font-size: 60px;
+    font-size: 90px;
 
 }
 
 .relogio span.tempo {
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .button-c {
