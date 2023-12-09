@@ -112,6 +112,8 @@ body {
     width: 80%;
     border-radius: 5px;
     justify-content: center;
+    height: 23px;
+    width: 120px;
 }
 
 @media (max-width: 768px) {
@@ -126,16 +128,24 @@ body {
 }
 
 .text-input {
-    color: white;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+.value-box {
+    width: 120px;
+    height: 23px;
+    background-color: #ccc;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.value-box:hover {
+    background-color: #b7b5b5;
 }
 
-.value-box {
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-    outline: none;
-}
-/* Remove as setas de aumento e diminuição */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
