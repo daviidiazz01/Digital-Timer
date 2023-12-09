@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/arquivos/css/style_timer.css">
     <link rel="icon" href="/arquivos/img/dev-diaz-sfundo.png" type="image/x-icon">
+
     <title>Temporizador Digital</title>
 </head>
 <body>
@@ -22,6 +23,10 @@
                     <li><button id="preset-2" class="button-cronometro">Louvor</button></li>
                     <li><button id="preset-3" class="button-cronometro">Ministração</button></li>
                 </ul>
+                <div id="numberInput" class="hidden">
+                    <label for="timeInput">Digite o tempo desejado</label>
+                    <input type="number" id="timeInput" min="1" max="60">
+                  </div>
             </li>
             <li>
                 <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
