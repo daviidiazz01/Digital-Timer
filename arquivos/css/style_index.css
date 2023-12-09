@@ -62,6 +62,13 @@ body {
 .button-cronometro {
     background-color: black;
     color: white;
+    margin: 5px;
+    border: none;
+    width: 80%;
+    border-radius: 5px;
+    justify-content: center;
+    height: 23px;
+    width: 120px;
 }
 .menu-toggle {
     display: flex;
