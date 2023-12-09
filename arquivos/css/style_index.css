@@ -59,7 +59,7 @@ body {
     border-radius: 3px;
 }
 
-.button-cronometro {
+.menu-transition {
     background-color: black;
     color: white;
     margin: 5px;
@@ -112,16 +112,4 @@ body {
 
 .menu li {
     margin-bottom: 10px;
-}
-
-.menu-transition {
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
 }
