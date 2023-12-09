@@ -50,25 +50,17 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
-    const menu = document.querySelector('.menu');
-    menu.style.right = '0px';
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('mouseenter', () => {
+    menu.style.right = '0';
 });
 
-document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
-    const menu = document.querySelector('.menu');
-    menu.style.right = '-250px';
+menu.addEventListener('mouseleave', () => {
+    menu.style.right = '-250px'; // Ou o valor correspondente para fechar o menu
 });
 
-document.querySelector('.menu-none').addEventListener('mouseover', () => {
-    const menu = document.querySelector('.menu');
-    menu.style.right = '0px';
-});
-
-document.querySelector('.menu-none').addEventListener('mouseout', () => {
-    const menu = document.querySelector('.menu');
-    menu.style.right = '-250px';
-});
 
 document.getElementById('preset-1').addEventListener('click', function () {
     tempoInput.value = '10'; //momento de oração antes do louvor
