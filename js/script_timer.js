@@ -14,6 +14,13 @@ function atualizarTempo() {
     horas.textContent = hr < 10 ? '0' + hr : hr;
     minutos.textContent = min < 10 ? '0' + min : min;
     segundos.textContent = seg < 10 ? '0' + seg : seg;
+
+    // Se o tempo total for 0, mude a cor do texto para vermelho
+    if (tempoTotal === 0) {
+        horas.style.color = 'red';
+        minutos.style.color = 'red';
+        segundos.style.color = 'red';
+    }
 }
 
 document.getElementById('iniciar-cronometro').addEventListener('click', function () {
@@ -28,6 +35,13 @@ document.getElementById('iniciar-cronometro').addEventListener('click', function
                 atualizarTempo();
             } else {
                 clearInterval(cronometro);
+                // Começa a contar o tempo que passou
+                cronometro = setInterval(function () {
+                    tempoExtra++;
+                    horas.textContent = Math.floor(tempoExtra / 3600);
+                    minutos.textContent = Math.floor((tempoExtra % 3600) / 60);
+                    segundos.textContent = tempoExtra % 60;
+                }, 1000);
             }
         }, 1000);
     }
