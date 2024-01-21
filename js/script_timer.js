@@ -5,6 +5,7 @@ const tempoInput = document.getElementById('text-input-information');
 
 let tempoTotal = 0;
 let cronometro;
+let blinkingInterval;
 
 function atualizarTempo() {
     const hr = Math.floor(tempoTotal / 3600);
@@ -15,12 +16,27 @@ function atualizarTempo() {
     minutos.textContent = min < 10 ? '0' + min : min;
     segundos.textContent = seg < 10 ? '0' + seg : seg;
 
-    // Se o tempo total for 0, mude a cor do texto para vermelho
     if (tempoTotal === 0) {
-        horas.style.color = 'red';
-        minutos.style.color = 'red';
-        segundos.style.color = 'red';
+        iniciarBlinking();
+    } else {
+        pararBlinking();
     }
+}
+
+function iniciarBlinking() {
+    pararBlinking(); // Garante que a animação não está sendo executada mais de uma vez
+    blinkingInterval = setInterval(() => {
+        horas.classList.toggle('blink');
+        minutos.classList.toggle('blink');
+        segundos.classList.toggle('blink');
+    }, 500);
+}
+
+function pararBlinking() {
+    clearInterval(blinkingInterval);
+    horas.classList.remove('blink');
+    minutos.classList.remove('blink');
+    segundos.classList.remove('blink');
 }
 
 document.getElementById('iniciar-cronometro').addEventListener('click', function () {
@@ -35,12 +51,9 @@ document.getElementById('iniciar-cronometro').addEventListener('click', function
                 atualizarTempo();
             } else {
                 clearInterval(cronometro);
-                // Começa a contar o tempo que passou
+                iniciarBlinking();
                 cronometro = setInterval(function () {
-                    tempoExtra++;
-                    horas.textContent = Math.floor(tempoExtra / 3600);
-                    minutos.textContent = Math.floor((tempoExtra % 3600) / 60);
-                    segundos.textContent = tempoExtra % 60;
+                    // Lógica para contar o tempo que passou
                 }, 1000);
             }
         }, 1000);
@@ -49,10 +62,12 @@ document.getElementById('iniciar-cronometro').addEventListener('click', function
 
 document.getElementById('pausar-cronometro').addEventListener('click', function () {
     clearInterval(cronometro);
+    pararBlinking();
 });
 
 document.getElementById('zerar-cronometro').addEventListener('click', function () {
     clearInterval(cronometro);
+    pararBlinking();
     tempoTotal = 0;
     atualizarTempo();
     tempoInput.value = '';
@@ -72,18 +87,17 @@ menuToggle.addEventListener('mouseenter', () => {
 });
 
 menu.addEventListener('mouseleave', () => {
-    menu.style.right = '-250px'; // Ou o valor correspondente para fechar o menu
+    menu.style.right = '-250px';
 });
 
-
 document.getElementById('preset-1').addEventListener('click', function () {
-    tempoInput.value = '10'; //momento de oração antes do louvor
+    tempoInput.value = '10';
 });
 
 document.getElementById('preset-2').addEventListener('click', function () {
-    tempoInput.value = '25'; //Momento de louvor
+    tempoInput.value = '25';
 });
 
 document.getElementById('preset-3').addEventListener('click', function () {
-    tempoInput.value = '45'; //Momento ministração
+    tempoInput.value = '45';
 });

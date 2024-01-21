@@ -27,7 +27,7 @@ body {
     width: 825px; 
     background: transparent;
     border-radius: 4.5px; 
-    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.5);
+    box-shadow:black;
     gap: 10px;
 }
 
@@ -40,7 +40,7 @@ body {
     justify-content: center;
     font-size: 90px; 
     color: white;
-    background-color: rgba(5, 5, 5, 0.9);
+    background-color: black;
     box-shadow: 7.5px 7.5px 22.5px rgba(0, 0, 0, 0.7); 
     border: 10.5px solid transparent; 
     letter-spacing: 4.5px; 
