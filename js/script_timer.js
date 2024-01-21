@@ -46,7 +46,7 @@ document.getElementById('zerar-cronometro').addEventListener('click', function (
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "r" || event.key === "R") {
-        window.location.href = "/arquivos/views/index.html";
+        window.location.href = "views/index.html";
     }
 });
 
