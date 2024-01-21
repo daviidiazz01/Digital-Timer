@@ -21,7 +21,7 @@ const relogio = setInterval(function time() {
 })
 document.addEventListener("keydown", function (event) {
     if (event.key === "T" || event.key === "t") {
-        window.location.href = "views/timer.html";
+        window.location.href = "timer.html";
     }
 });
 document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
