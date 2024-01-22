@@ -24,7 +24,7 @@ function atualizarTempo() {
 }
 
 function iniciarBlinking() {
-    pararBlinking(); // Garante que a animação não está sendo executada mais de uma vez
+    pararBlinking();
     blinkingInterval = setInterval(() => {
         horas.classList.toggle('blink');
         minutos.classList.toggle('blink');
@@ -42,8 +42,8 @@ function pararBlinking() {
 document.getElementById('iniciar-cronometro').addEventListener('click', function () {
     const minutosDefinidos = parseInt(tempoInput.value);
     if (!isNaN(minutosDefinidos)) {
-        clearInterval(cronometro); // Limpa o intervalo anterior, se existir
-        tempoTotal = minutosDefinidos * 60; // Converter minutos em segundos
+        clearInterval(cronometro);
+        tempoTotal = minutosDefinidos * 60;
         atualizarTempo();
         cronometro = setInterval(function () {
             if (tempoTotal > 0) {
@@ -53,7 +53,7 @@ document.getElementById('iniciar-cronometro').addEventListener('click', function
                 clearInterval(cronometro);
                 iniciarBlinking();
                 cronometro = setInterval(function () {
-                    // Lógica para contar o tempo que passou
+
                 }, 1000);
             }
         }, 1000);
@@ -100,4 +100,9 @@ document.getElementById('preset-2').addEventListener('click', function () {
 
 document.getElementById('preset-3').addEventListener('click', function () {
     tempoInput.value = '45';
+});
+document.getElementById('Remote-Control').addEventListener('click', function (event) {
+    event.preventDefault();
+    window.open('/remote-control.html', '_blank');
+    window.focus();
 });

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.remote.css">
+    <link rel="icon" href="/img/dev-diaz-sfundo.png" type="image/x-icon">
+    <title>Remote Control</title>
+</head>
+
+<body>
+    <div class="timer-controls">
+        <button class="button" onclick="iniciarCronometro()">Iniciar</button>
+        <button class="button" onclick="pausarCronometro()">Pausar</button>
+        <button class="button" onclick="zerarCronometro()">Zerar</button>
+    </div>
+    <div class="input-value">
+        <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
+        <input class="value-box" type="number" id="text-input-information" placeholder="Digite o valor">
+    </div>
+    <ul>
+        <li>
+            <a href="/index.html" class="button-link">
+                <button class="button-cronometro">Relógio</button>
+            </a>
+        </li>
+    </ul>
+    <script src="/js/script.control.js"></script>
+</body>
+
+</html>
