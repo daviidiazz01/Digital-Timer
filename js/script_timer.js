@@ -103,8 +103,10 @@ document.getElementById('preset-3').addEventListener('click', function () {
 });
 document.getElementById('Remote-Control').addEventListener('click', function (event) {
     event.preventDefault();
-    window.open('/remote-control.html', '_blank', 'width=400,height=300,resizable=no');
+    window.open('/remote-control.html', '_blank', 'width=400,height=300,resizable=no,toolbar=no,menubar=no,scrollbars=no,status=no');
     window.focus();
 });
+
+
 
 
