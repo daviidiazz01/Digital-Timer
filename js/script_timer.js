@@ -5,18 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const segundos = document.getElementById('segundos');
     const tempoInput = document.getElementById('text-input-information');
 
-    // Variáveis para controlar o tempo e o cronômetro
     let tempoTotal = 0;
     let cronometro;
     let blinkingInterval;
 
-    // Função para atualizar o tempo exibido no temporizador
     function atualizarTempo() {
         const hr = Math.floor(tempoTotal / 3600);
         const min = Math.floor((tempoTotal % 3600) / 60);
         const seg = tempoTotal % 60;
 
-        // Atualização dos elementos de horas, minutos e segundos no DOM
         horas.textContent = hr < 10 ? '0' + hr : hr;
         minutos.textContent = min < 10 ? '0' + min : min;
         segundos.textContent = seg < 10 ? '0' + seg : seg;
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Função para iniciar o efeito de piscar
+    // Função para iniciar o efeito de piscar, e abaixo a função para parar de piscar
     function iniciarBlinking() {
         pararBlinking();
         blinkingInterval = setInterval(() => {
@@ -39,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 
-    // Função para parar o efeito de piscar
     function pararBlinking() {
         clearInterval(blinkingInterval);
         horas.classList.remove('blink');
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         segundos.classList.remove('blink');
     }
 
-    // Adiciona um ouvinte de evento ao botão de iniciar o cronômetro
     document.getElementById('iniciar-cronometro').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
         if (!isNaN(minutosDefinidos)) {
@@ -55,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
             tempoTotal = minutosDefinidos * 60;
             atualizarTempo();
 
-            // Configuração do intervalo do cronômetro
             cronometro = setInterval(function () {
                 if (tempoTotal > 0) {
                     tempoTotal--;
@@ -64,20 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     clearInterval(cronometro);
                     iniciarBlinking();
                     cronometro = setInterval(function () {
-                        // Código vazio, precisa ser preenchido conforme a necessidade
                     }, 1000);
                 }
             }, 1000);
         }
     });
 
-    // Adiciona um ouvinte de evento ao botão de pausar o cronômetro
     document.getElementById('pausar-cronometro').addEventListener('click', function () {
         clearInterval(cronometro);
         pararBlinking();
     });
 
-    // Adiciona um ouvinte de evento ao botão de zerar o cronômetro
     document.getElementById('zerar-cronometro').addEventListener('click', function () {
         clearInterval(cronometro);
         pararBlinking();
@@ -86,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tempoInput.value = '';
     });
 
-    // Adiciona um ouvinte de evento para a tecla "R" para redirecionar para index.html
     document.addEventListener("keydown", function (event) {
         if (event.key === "r" || event.key === "R") {
             window.location.href = "index.html";
@@ -105,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.style.right = '-250px';
     });
 
-    // Adiciona ouvintes de eventos aos botões de preset para definir valores predefinidos
+
     document.getElementById('preset-1').addEventListener('click', function () {
         tempoInput.value = '10';
     });
