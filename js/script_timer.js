@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     clearInterval(cronometro);
                     iniciarBlinking();
                     cronometro = setInterval(function () {
-                        // Faça algo quando o tempo atingir 0
                     }, 1000);
                 }
             }, 1000);
