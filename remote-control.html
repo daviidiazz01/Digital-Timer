@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.remote.css">
-    <link rel="icon" href="/img/dev-diaz-sfundo.png" type="image/x-icon">
-    <title>Remote Control</title>
+    <title> Controle Remoto </title>
 </head>
-
 <body>
-    <div class="timer-controls">
-        <button class="button" onclick="iniciarCronometro()">Iniciar</button>
-        <button class="button" onclick="pausarCronometro()">Pausar</button>
-        <button class="button" onclick="zerarCronometro()">Zerar</button>
-    </div>
-    <br>
-    <div class="input-value">
-        <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
-        <input class="value-box" type="number" id="text-input-information" placeholder="Digite o valor">
-    </div>
-    <ul>
-        <li>
-            <a href="/index.html" class="button-link">
-                <button class="button-cronometro">Relógio</button>
-            </a>
-        </li>
-        <li>
-            <a href="/timer.html" class="button-link">
-                <button class="button-cronometro">Temporizador</button>
-            </a>
-        </li>
-    </ul>
-    <script src="/js/script.control.js"></script>
+    <nav class="menu">
+        <div class="itens-menu"></div>
+        <ul>
+            <li><a href="#">-------------------</a>
+                <ul>
+                    <li><button id="preset-1" class="button-cronometro">Oração</button></li>
+                    <li><button id="preset-2" class="button-cronometro">Louvor</button></li>
+                    <li><button id="preset-3" class="button-cronometro">Ministração</button></li>
+                </ul>
+                <div id="numberInput" class="hidden">
+                    <label for="timeInput">Digite o tempo desejado</label>
+                    <input type="number" id="timeInput" min="1" max="60">
+                </div>
+            </li>
+            <li>
+                <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
+                <input class="value-box" type="number" id="text-input-information" placeholder="Digite o valor">
+            </li>
+            <li>
+                <button id="iniciar-cronometro" class="button-cronometro">Iniciar</button>
+            </li>
+            <li>
+                <button id="pausar-cronometro" class="button-cronometro">Pausar</button>
+            </li>
+            <li>
+                <button id="zerar-cronometro" class="button-cronometro">Zerar</button>
+            </li>
+            <li>
+                <a href="/index.html" class="button-link">
+                    <button class="button-cronometro">Relógio</button>
+                </a>
+            </li>
+            <li>
+                <a href="/script_control.html" class="button-link">
+                    <button id="Remote-Control" class="button-cronometro" target="_blank">Controle Remoto</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script src="js/script_timer.js"></script>
 </body>
-
 </html>
