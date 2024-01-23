@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         minutos.textContent = min < 10 ? '0' + min : min;
         segundos.textContent = seg < 10 ? '0' + seg : seg;
 
-        // Verificação e controle do efeito de piscar quando o tempo chega a zero
+        // Verificação e controle do efeito de piscar quando o tempo chegar a zero
         if (tempoTotal === 0) {
             iniciarBlinking();
         } else {
