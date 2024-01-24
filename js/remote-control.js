@@ -11,4 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
             sendMessageToTimer(minutosDefinidos);
         }
     });
+
+    document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
+        sendMessageToTimer(-10);
+    });
+
+    document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
+        // Sempre envie 0 ao clicar no botão de zerar
+        sendMessageToTimer(0);
+    });
+
+    
 });
