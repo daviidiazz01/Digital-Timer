@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Obtenção de referências aos elementos HTML pelo ID
     const horas = document.getElementById('horas');
     const minutos = document.getElementById('minutos');
     const segundos = document.getElementById('segundos');
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         minutos.textContent = min < 10 ? '0' + min : min;
         segundos.textContent = seg < 10 ? '0' + seg : seg;
 
+        // Verificação e controle do efeito de piscar quando o tempo chegar a zero
         if (tempoTotal === 0) {
             iniciarBlinking();
         } else {
@@ -24,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Função para iniciar o efeito de piscar, e abaixo a função para parar de piscar
     function iniciarBlinking() {
         pararBlinking();
         blinkingInterval = setInterval(() => {
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         segundos.classList.remove('blink');
     }
 
+    // Função compartilhada para iniciar a contagem regressiva
     function startCountdown(minutes) {
         clearInterval(cronometro);
         tempoTotal = minutes * 60;
@@ -53,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearInterval(cronometro);
                 iniciarBlinking();
                 cronometro = setInterval(function () {
+                    // Lógica adicional após a contagem regressiva chegar a zero
                 }, 1000);
             }
         }, 1000);
@@ -61,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('iniciar-cronometro').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
         if (!isNaN(minutosDefinidos)) {
+            // Chama a função compartilhada para iniciar a contagem regressiva
             startCountdown(minutosDefinidos);
         }
     });
@@ -76,11 +82,5 @@ document.addEventListener("DOMContentLoaded", function () {
         tempoTotal = 0;
         atualizarTempo();
         tempoInput.value = '';
-    });
-
-    window.addEventListener('message', function (event) {
-        if (event.data.command === 'startCountdown' && !isNaN(event.data.minutes)) {
-            startCountdown(event.data.minutes);
-        }
     });
 });
