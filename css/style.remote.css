@@ -2,22 +2,21 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+    background-color: black;
     color: #fff;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    margin-top: 10px;
 }
 
 .input-values {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
 .text-input {
@@ -38,7 +37,7 @@ body {
 .timer-controls {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Adicionado espaço abaixo dos botões */
+ /* Adicionado espaço abaixo dos botões */
 }
 
 .button-timer {
@@ -59,7 +58,6 @@ body {
 .button-link {
     text-decoration: none;
     color: #fff;
-    margin-top: 10px;
 }
 
 .button-cronometro {
@@ -106,12 +104,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-
+    font-size: 30px;
     background: transparent;
     border-radius: 4.5px; 
     box-shadow: black;
     gap: 10px;
 }
+
+
 
 
 
