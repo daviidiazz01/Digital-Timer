@@ -55,6 +55,23 @@ body {
     font-size: 20px;
 }
 
+.menu-transition {
+    background-color: black;
+    color: white;
+    margin: 5px;
+    border: none;
+    width: 80%;
+    border-radius: 5px;
+    justify-content: center;
+    height: 23px;
+    width: 120px;
+    cursor: pointer;
+}
+.menu-transition:hover{
+    background-color: gray;
+    color: black;
+}
+
 .menu-toggle {
     display: flex;
     flex-direction: column;
