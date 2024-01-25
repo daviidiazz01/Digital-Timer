@@ -91,3 +91,15 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+/* Adicione esta regra ao seu arquivo CSS */
+.tempo-esgotado {
+    animation: blink 1s infinite alternate;
+    border: 2px solid red;
+}
+
+@keyframes blink {
+    to {
+        background-color: red;
+    }
+}
+

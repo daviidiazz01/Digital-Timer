@@ -19,8 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (tempoTotal === 0) {
             iniciarBlinking();
+            destacarTempoEsgotado(true);
         } else {
             pararBlinking();
+            destacarTempoEsgotado(false);
+        }
+    }
+
+    function destacarTempoEsgotado(destacar) {
+        if (destacar) {
+            tempoInput.classList.add('tempo-esgotado');
+            piscaPisca();
+        } else {
+            tempoInput.classList.remove('tempo-esgotado');
         }
     }
 
@@ -40,11 +51,23 @@ document.addEventListener("DOMContentLoaded", function () {
         segundos.classList.remove('blink');
     }
 
+    function piscaPisca() {
+        let count = 0;
+        const maxCount = 5;  // Altere o número de piscadas desejado
+        const interval = setInterval(function () {
+            tempoInput.style.borderColor = (count % 2 === 0) ? 'red' : '';
+            count++;
+            if (count > maxCount * 2) {
+                clearInterval(interval);
+            }
+        }, 500);
+    }
+
     function startCountdown(minutes) {
         clearInterval(cronometro);
         tempoTotal = minutes * 60;
         atualizarTempo();
-
+    
         cronometro = setInterval(function () {
             if (tempoTotal > 0) {
                 tempoTotal--;
@@ -52,12 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(cronometro);
                 iniciarBlinking();
-                cronometro = setInterval(function () {
-                }, 1000);
+                alertarTemporizadorEncerrado(); // Adiciona essa linha para alertar
             }
         }, 1000);
+    
     }
-
+    
     function pausarCronometro() {
         clearInterval(cronometro);
         pararBlinking();
@@ -96,15 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-function openRemoteControl() {
-    // Especifique as dimensões desejadas para a nova janela
-    const width = 400;
-    const height = 300;
-
-    // Calcular as posições para centralizar a janela
-    const left = (window.innerWidth - width) / 2;
-    const top = (window.innerHeight - height) / 2;
-
-    // Abrir a nova janela com as dimensões e posições especificadas
-    window.open('/remote-control.html', '_blank', `width=${width},height=${height},left=${left},top=${top} resizable=no`);
+function alertarTemporizadorEncerrado() {
+    window.opener.postMessage({ message: 'tempoEsgotado' }, '*');
 }
