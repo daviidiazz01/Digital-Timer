@@ -127,3 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 });
+
+function openTimer() {
+    window.open('/timer.html', 'timer');
+}
