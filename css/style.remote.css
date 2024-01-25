@@ -102,4 +102,19 @@ html, body {
         background-color: red;
     }
 }
+.relogio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: transparent;
+    border-radius: 4.5px; 
+    box-shadow: black;
+    gap: 10px;
+}
+
+
+
+
+
 
