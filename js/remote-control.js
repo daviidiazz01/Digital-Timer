@@ -1,25 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tempoInput = document.getElementById('text-input-information');
 
-    function sendMessageToTimer(minutes) {
-        window.opener.postMessage({ command: 'startCountdown', minutes: minutes }, '*');
+    function sendMessageToTimer(command, minutes) {
+        window.opener.postMessage({ command, minutes }, '*');
     }
 
     document.getElementById('iniciar-cronometro-remote').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
         if (!isNaN(minutosDefinidos)) {
-            sendMessageToTimer(minutosDefinidos);
+            sendMessageToTimer('startCountdown', minutosDefinidos);
         }
     });
 
     document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
-        sendMessageToTimer(-10);
+        sendMessageToTimer('pauseCountdown', 0);
     });
 
     document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
         // Sempre envie 0 ao clicar no botão de zerar
-        sendMessageToTimer(0);
+        sendMessageToTimer('resetCountdown', 0);
     });
-
-    
 });

@@ -58,6 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     }
 
+    function pausarCronometro() {
+        clearInterval(cronometro);
+        pararBlinking();
+    }
+
+    function reiniciarCronometro() {
+        clearInterval(cronometro);
+        pararBlinking();
+        tempoTotal = 0;
+        atualizarTempo();
+        tempoInput.value = '';
+    }
+
     document.getElementById('iniciar-cronometro').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
         if (!isNaN(minutosDefinidos)) {
@@ -66,21 +79,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById('pausar-cronometro').addEventListener('click', function () {
-        clearInterval(cronometro);
-        pararBlinking();
+        pausarCronometro();
     });
 
     document.getElementById('zerar-cronometro').addEventListener('click', function () {
-        clearInterval(cronometro);
-        pararBlinking();
-        tempoTotal = 0;
-        atualizarTempo();
-        tempoInput.value = '';
+        reiniciarCronometro();
     });
 
     window.addEventListener('message', function (event) {
         if (event.data.command === 'startCountdown' && !isNaN(event.data.minutes)) {
             startCountdown(event.data.minutes);
+        } else if (event.data.command === 'pauseCountdown') {
+            pausarCronometro();
+        } else if (event.data.command === 'resetCountdown') {
+            reiniciarCronometro();
         }
     });
 });
+function openRemoteControl() {
+    // Especifique as dimensões desejadas para a nova janela
+    const width = 400;
+    const height = 300;
+
+    // Calcular as posições para centralizar a janela
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+
+    // Abrir a nova janela com as dimensões e posições especificadas
+    window.open('/remote-control.html', '_blank', `width=${width},height=${height},left=${left},top=${top} resizable=no`);
+}
