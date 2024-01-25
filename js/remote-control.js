@@ -26,11 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
+        pausarCronometro();
+    });
 
+    document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
+        reiniciarCronometro();
+    });
 
+    function pausarCronometro() {
+        clearInterval(cronometro);
+        pararBlinking();
+    }
 
-
-    
+    function reiniciarCronometro() {
+        clearInterval(cronometro);
+        pararBlinking();
+        tempoTotal = 0;
+        atualizarTempo();
+        tempoInput.value = '';
+    }
 
     document.getElementById('iniciar-cronometro-remote').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
