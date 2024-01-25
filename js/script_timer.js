@@ -142,16 +142,19 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.style.right = '-250px';
     });
 
-    function openRemoteControl() {
-        const remoteControlWindow = window.open('/remote-control.html', 'Controle Remoto', 'width=400,height=300');
-        
-        if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
-            alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
-        }
-    }
+
 
 
 });
+function openRemoteControl() {
+    // Abre o controle remoto em uma nova aba
+    const remoteControlWindow = window.open('/remote-control.html', 'Controle Remoto', 'width=400,height=300');
+
+    // Verifica se a janela foi bloqueada por pop-up
+    if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
+        alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
+    }
+}
 
 
 
