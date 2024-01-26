@@ -156,3 +156,16 @@ function atualizarTempoInterno() {
 
 document.getElementById('diminuir-minuto-btn').addEventListener('click', diminuirMinuto);
 document.getElementById('adicionar-minuto-btn').addEventListener('click', adicionarMinuto);
+
+document.getElementById('relogioBtn').addEventListener('click', function () {
+    // Abre a página do relógio em uma nova janela
+    var relogioWindow = window.open('index.html');
+
+    // Fecha a janela atual (do temporizador), se possível
+    if (relogioWindow) {
+        relogioWindow.opener = null;  // Remove a referência ao script pai para evitar problemas de segurança
+        window.close();
+    } else {
+        alert("Não foi possível fechar a janela do temporizador. Por favor, feche manualmente.");
+    }
+});
