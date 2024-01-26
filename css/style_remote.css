@@ -80,7 +80,6 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-/* Desativar animação de foco no input */
 input[type="number"]:focus {
     outline: none;
     border-color: #ddd;
@@ -89,7 +88,7 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
-/* Adicione esta regra ao seu arquivo CSS */
+
 .tempo-esgotado {
     animation: blink 1s infinite alternate;
     border: 2px solid red;
@@ -110,6 +109,7 @@ html, body {
     box-shadow: black;
     gap: 10px;
 }
+
 
 
 
