@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
 
 * {
     margin: 0;
@@ -23,11 +23,10 @@ body {
     align-items: center;
     justify-content: space-around;
     height: 700px; 
-    width: 1050px; 
     background: transparent;
     border-radius: 4.5px; 
     box-shadow: black;
-    gap: 10px;
+
 }
 
 .relogio div {

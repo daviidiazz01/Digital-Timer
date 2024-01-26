@@ -19,25 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
-        sendMessageToTimer('pauseCountdown', 0);
-    });
-
     document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
-        // Sempre envie 0 ao clicar no botão de zerar
+        reiniciarCronometro();
         sendMessageToTimer('resetCountdown', 0);
     });
 
-
-
-
-
     document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
         pausarCronometro();
-    });
-
-    document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
-        reiniciarCronometro();
+        sendMessageToTimer('pauseCountdown', 0);
     });
 
     function pausarCronometro() {
