@@ -161,7 +161,5 @@ function openRemoteControl() {
             document.getElementById('minutos').innerText = minutos.toString().padStart(2, '0');
         }
     }
-    
-
 
 
