@@ -142,9 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.style.right = '-250px';
     });
 
-
-
-
 });
 function openRemoteControl() {
     
@@ -156,6 +153,15 @@ function openRemoteControl() {
 }
     document.body.style.overflow = "hidden";
 
+    function Diminuirum() {
+        let minutos = parseInt(document.getElementById('minutos').innerText, 10);
+        
+        if (minutos > 0) {
+            minutos--;
+            document.getElementById('minutos').innerText = minutos.toString().padStart(2, '0');
+        }
+    }
+    
 
 
 

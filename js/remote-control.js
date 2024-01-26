@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tempoInput = document.getElementById('text-input-information');
+    const horas = document.getElementById('horas'); 
+    const minutos = document.getElementById('minutos'); 
+    const segundos = document.getElementById('segundos'); 
+    let cronometro;
+    let blinkingInterval;
+    let tempoTotal = 0;  
 
     function sendMessageToTimer(command, minutes) {
         window.opener.postMessage({ command, minutes }, '*');
@@ -66,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(cronometro);
                 iniciarBlinking();
-                alertarTemporizadorEncerrado(); // Adiciona essa linha para alertar
+                alertarTemporizadorEncerrado(); 
             }
         }, 1000);
     
@@ -117,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function piscaPisca() {
         let count = 0;
-        const maxCount = 5;  // Altere o número de piscadas desejado
+        const maxCount = 5;  
         const interval = setInterval(function () {
             tempoInput.style.borderColor = (count % 2 === 0) ? 'red' : '';
             count++;
@@ -127,3 +133,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 });
+function adicionarMinuto() {
+    let minutosAtual = parseInt(minutos.textContent, 10);
+    minutosAtual++;
+    minutos.textContent = minutosAtual.toString().padStart(2, '0');
+}
+
+function diminuirMinuto() {
+    let minutosAtual = parseInt(minutos.textContent, 10);
+    if (minutosAtual > 0) {
+        minutosAtual--;
+        minutos.textContent = minutosAtual.toString().padStart(2, '0');
+    }
+}
+function atualizarTempoInterno() {
+    const hr = parseInt(horas.textContent, 10);
+    const min = parseInt(minutos.textContent, 10);
+    const seg = parseInt(segundos.textContent, 10);
+
+    tempoTotal = hr * 3600 + min * 60 + seg;
+}
+
+document.getElementById('diminuir-minuto-btn').addEventListener('click', diminuirMinuto);
+document.getElementById('adicionar-minuto-btn').addEventListener('click', adicionarMinuto);
