@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function openRemoteControl() {
     // Abre o controle remoto em uma nova aba
-    const remoteControlWindow = window.open('/remote-control.html', 'Controle Remoto', 'width=250,height=190');
+    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=250,height=190');
 
     // Verifica se a janela foi bloqueada por pop-up
     if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
