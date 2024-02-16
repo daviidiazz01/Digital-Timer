@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(cronometro);
         tempoTotal = minutes * 60;
         atualizarTempo();
-    
+
         cronometro = setInterval(function () {
             if (tempoTotal > 0) {
                 tempoTotal--;
@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 alertarTemporizadorEncerrado(); // Adiciona essa linha para alertar
             }
         }, 1000);
-    
+
     }
-    
+
     function pausarCronometro() {
         clearInterval(cronometro);
         pararBlinking();
@@ -126,17 +126,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const menu = document.querySelector('.menu');
         menu.style.right = '0px';
     });
-    
+
     document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
         const menu = document.querySelector('.menu');
         menu.style.right = '-250px';
     });
-    
+
     document.querySelector('.menu-none').addEventListener('mouseover', () => {
         const menu = document.querySelector('.menu');
         menu.style.right = '0px';
     });
-    
+
     document.querySelector('.menu-none').addEventListener('mouseout', () => {
         const menu = document.querySelector('.menu');
         menu.style.right = '-250px';
@@ -144,22 +144,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function openRemoteControl() {
-    
+
     const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=250,height=190');
 
     if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
         alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
     }
 }
-    document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
-    function Diminuirum() {
-        let minutos = parseInt(document.getElementById('minutos').innerText, 10);
-        
-        if (minutos > 0) {
-            minutos--;
-            document.getElementById('minutos').innerText = minutos.toString().padStart(2, '0');
-        }
-    }
+document.getElementById('button-cronometro').addEventListener('click', function () {
+
+    window.close();
+    window.open('index.html', '_blank');
+});
+
 
 
