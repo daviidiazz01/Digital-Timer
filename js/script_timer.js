@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function openRemoteControl() {
 
-    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=350');
+    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=600');
 
     if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
         alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');

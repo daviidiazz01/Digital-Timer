@@ -114,6 +114,8 @@ html, body {
     text-align: center; 
     padding: 0; 
     margin-bottom: 10px;
+    width: 150px; 
+    height: 40px;
 }
 
 .menu {
@@ -126,7 +128,7 @@ html, body {
     background: none;
     border: none;
     cursor: pointer;
-    margin-bottom: 15px; /* Diminui a distância entre os botões */
+    margin-bottom: 10px; /* Diminui a distância entre os botões */
     padding: 0;
 }
 
