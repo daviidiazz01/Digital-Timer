@@ -148,6 +148,14 @@ function toggleMenu() {
     menu.classList.toggle('open');
     var menuClosedIcon = document.querySelector('.menu-closed');
     var menuOpenIcon = document.querySelector('.menu-open');
-    menuClosedIcon.style.display = menu.classList.contains('open') ? 'none' : 'block';
-    menuOpenIcon.style.display = menu.classList.contains('open') ? 'block' : 'none';
+    var menuList = document.querySelector('.menu ul');
+    if (menu.classList.contains('open')) {
+        menuClosedIcon.style.display = 'none';
+        menuOpenIcon.style.display = 'block';
+        menuList.style.flexDirection = 'column';
+    } else {
+        menuClosedIcon.style.display = 'block';
+        menuOpenIcon.style.display = 'none';
+        menuList.style.flexDirection = 'row';
+    }
 }
