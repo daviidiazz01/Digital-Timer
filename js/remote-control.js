@@ -143,20 +143,3 @@ function atualizarTempoInterno() {
     tempoTotal = hr * 3600 + min * 60 + seg;
 }
 
-document.getElementById('diminuir-minuto-btn').addEventListener('click', diminuirMinuto);
-document.getElementById('adicionar-minuto-btn').addEventListener('click', adicionarMinuto);
-
-document.getElementById('button-relogio').addEventListener('click', function () {
-    // Lógica para abrir a página do relógio (index.html)
-    var relogioWindow = window.open('index.html');
-
-    // Lógica para fechar a página do temporizador (timer.html)
-    if (relogioWindow) {
-        // Feche a página do temporizador apenas se ela estiver aberta
-        var timerWindow = window.open('', '_self', '');  // Obtém uma referência à página atual (timer.html)
-        timerWindow.close();  // Fecha a página do temporizador (timer.html)
-    } else {
-        alert("Não foi possível abrir a janela do relógio.");
-    }
-});
-
