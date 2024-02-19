@@ -117,8 +117,13 @@ html, body {
 }
 
 .menu {
-    display: none;
+    display: block;
 }
+
+.menu.open {
+    display: block;
+}
+
 
 .menu-btn {
     display: block;
@@ -126,6 +131,9 @@ html, body {
     border: none;
     cursor: pointer;
     padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .menu-btn:focus {
@@ -136,13 +144,13 @@ html, body {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
 }
 
 .menu li {
     padding: 10px;
 }
 
-.menu li a {
-    text-decoration: none;
-    color: black;
+.menu-btn svg {
+    fill: white; 
 }
