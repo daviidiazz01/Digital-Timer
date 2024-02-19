@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function piscaPisca() {
         let count = 0;
-        const maxCount = 5;  // Altere o número de piscadas desejado
+        const maxCount = 5; 
         const interval = setInterval(function () {
             tempoInput.style.borderColor = (count % 2 === 0) ? 'red' : '';
             count++;
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(cronometro);
                 iniciarBlinking();
-                alertarTemporizadorEncerrado(); // Adiciona essa linha para alertar
+                alertarTemporizadorEncerrado(); 
             }
         }, 1000);
 
