@@ -22,7 +22,7 @@ body {
 .text-input {
     font-size: 18px;
     margin-bottom: 10px;
-    text-align: center; /* Adicionado para centralizar o texto */
+    text-align: center; 
 }
 
 .value-box {
@@ -31,13 +31,13 @@ body {
     border-radius: 5px;
     border: none;
     text-align: center;
-    width: 200px; /* Largura do input, ajuste conforme necessário */
+    width: 200px; 
 }
 
 .timer-controls {
     display: flex;
     align-items: center;
- /* Adicionado espaço abaixo dos botões */
+
 }
 
 .button-timer {
@@ -61,7 +61,7 @@ body {
 }
 
 .button-cronometro {
-    width: 100px;
+    width: 40px;
     background-color: #333;
     color: #fff;
     padding: 10px;

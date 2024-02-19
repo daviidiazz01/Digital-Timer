@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style_remote.css">
     <link rel="icon" href="/img/dev-diaz-sfundo.png" type="image/x-icon">
-    <title>Controle remoto- DD</title>
+    <title>Controle remoto- Davi Diaz</title>
 </head>
 
 <body>
@@ -58,16 +58,19 @@
         </button>
         <button id="add1min" class="button-cronometro">+ 1</button>
     </div>
-    <button id="botao" class="button-cronometro">Relógio</button>
-    <button id="botao" class="button-cronometro">Temporizador</button>
-    <p>PRESETS</p>
-    <div class="presets">
-        <li><button id="preset-1" class="button-cronometro" data-tempo="10">Oração</button></li>
-        <li><button id="preset-2" class="button-cronometro" data-tempo="25">Louvor</button></li>
-        <li><button id="preset-3" class="button-cronometro" data-tempo="50">Ministração</button></li>
-        <li><button id="preset-3" class="button-cronometro" data-tempo="10">Avisos</button></li>
+
+    <div class="transition">
+        <button class="presets">Relógio</button>
+        <button class="presets">Temporizador</button>
     </div>
 
+    <p>PRESETS</p>
+    <div class="presets">
+        <li><button id="preset-1" class="presets" data-tempo="10">Oração</button></li>
+        <li><button id="preset-2" class="presets" data-tempo="25">Louvor</button></li>
+        <li><button id="preset-3" class="presets" data-tempo="50">Ministração</button></li>
+        <li><button id="preset-3" class="presets" data-tempo="10">Avisos</button></li>
+    </div>
 
     <script src="js/common.js"></script>
     <script src="js/remote-control.js"></script>
