@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tempoInput = document.getElementById('text-input-information');
-    const horas = document.getElementById('horas'); 
-    const minutos = document.getElementById('minutos'); 
-    const segundos = document.getElementById('segundos'); 
+    const horas = document.getElementById('horas');
+    const minutos = document.getElementById('minutos');
+    const segundos = document.getElementById('segundos');
     let cronometro;
     let blinkingInterval;
-    let tempoTotal = 0;  
+    let tempoTotal = 0;
 
     function sendMessageToTimer(command, minutes) {
         window.opener.postMessage({ command, minutes }, '*');
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(cronometro);
         tempoTotal = minutes * 60;
         atualizarTempo();
-    
+
         cronometro = setInterval(function () {
             if (tempoTotal > 0) {
                 tempoTotal--;
@@ -61,12 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(cronometro);
                 iniciarBlinking();
-                alertarTemporizadorEncerrado(); 
+                alertarTemporizadorEncerrado();
             }
         }, 1000);
-    
+
     }
-    
+
     function atualizarTempo() {
         const hr = Math.floor(tempoTotal / 3600);
         const min = Math.floor((tempoTotal % 3600) / 60);
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             destacarTempoEsgotado(false);
         }
     }
-    
+
     function iniciarBlinking() {
         pararBlinking();
         blinkingInterval = setInterval(() => {
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function piscaPisca() {
         let count = 0;
-        const maxCount = 5;  
+        const maxCount = 5;
         const interval = setInterval(function () {
             tempoInput.style.borderColor = (count % 2 === 0) ? 'red' : '';
             count++;

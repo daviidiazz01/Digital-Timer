@@ -109,7 +109,11 @@ html, body {
     box-shadow: black;
     gap: 10px;
 }
-
+.presets{
+    list-style: none;
+    align-items: center;
+    border: none;
+}
 
 
 
