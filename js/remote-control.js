@@ -146,5 +146,8 @@ function atualizarTempoInterno() {
 function toggleMenu() {
     var menu = document.querySelector('.menu');
     menu.classList.toggle('open');
+    var menuClosedIcon = document.querySelector('.menu-closed');
+    var menuOpenIcon = document.querySelector('.menu-open');
+    menuClosedIcon.style.display = menu.classList.contains('open') ? 'none' : 'block';
+    menuOpenIcon.style.display = menu.classList.contains('open') ? 'block' : 'none';
 }
-
