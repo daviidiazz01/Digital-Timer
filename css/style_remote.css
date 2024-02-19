@@ -16,13 +16,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin: 15px;
 }
 
 .text-input {
     font-size: 18px;
     margin-bottom: 10px;
-    text-align: center; /* Adicionado para centralizar o texto */
+    text-align: center; 
 }
 
 .value-box {
@@ -37,7 +37,7 @@ body {
 .timer-controls {
     display: flex;
     align-items: center;
- /* Adicionado espaço abaixo dos botões */
+
 }
 
 .button-timer {
@@ -113,13 +113,36 @@ html, body {
     list-style: none;
     align-items: center;
     border: none;
-    text-align: c;
+    text-align: center;
 }
 
+.menu {
+    display: none;
+}
 
+.menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
 
+.menu-btn:focus {
+    outline: none;
+}
 
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
+.menu li {
+    padding: 10px;
+}
 
-
-
+.menu li a {
+    text-decoration: none;
+    color: black;
+}

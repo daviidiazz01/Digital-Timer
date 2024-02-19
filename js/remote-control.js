@@ -143,3 +143,7 @@ function atualizarTempoInterno() {
     tempoTotal = hr * 3600 + min * 60 + seg;
 }
 
+function toggleMenu() {
+    var menu = document.querySelector('.menu');
+    menu.classList.toggle('open');
+}
