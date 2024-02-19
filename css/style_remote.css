@@ -61,6 +61,7 @@ body {
 }
 
 .button-cronometro {
+    width: 100px;
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -111,8 +112,8 @@ html, body {
 }
 .presets{
     list-style: none;
-    align-items: center;
     border: none;
+    text-align: center;
 }
 
 
