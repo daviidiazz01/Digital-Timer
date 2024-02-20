@@ -135,13 +135,6 @@ function diminuirMinuto() {
         minutos.textContent = minutosAtual.toString().padStart(2, '0');
     }
 }
-function atualizarTempoInterno() {
-    const hr = parseInt(horas.textContent, 10);
-    const min = parseInt(minutos.textContent, 10);
-    const seg = parseInt(segundos.textContent, 10);
-
-    tempoTotal = hr * 3600 + min * 60 + seg;
-}
 
 function toggleMenu() {
     var menu = document.querySelector('.menu');
@@ -158,34 +151,4 @@ function toggleMenu() {
         menuOpenIcon.style.display = 'none';
         menuList.style.flexDirection = 'row';
     }
-}
-var presets = {
-    'Oração': 10,
-    'Louvor': 25,
-    'Ministração': 50,
-    'Avisos': 15,
-};
-var buttons = document.querySelectorAll('.menu ul li button');
-
-buttons.forEach(function(button) {
-    var presetName = button.textContent;
-    button.textContent = presetName + ' (' + presets[presetName] + ')';
-    button.value = presets[presetName];
-});
-
-buttons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        var value = this.value;
-        document.getElementById('text-input-information').value = value;
-    });
-});
-
-if (menu.classList.contains('open')) {
-    menuClosedIcon.style.display = 'none';
-    menuOpenIcon.style.display = 'block';
-    menuList.style.flexDirection = 'column';
-} else {
-    menuClosedIcon.style.display = 'block';
-    menuOpenIcon.style.display = 'none';
-    menuList.style.flexDirection = 'row';
 }
