@@ -20,7 +20,7 @@ body {
 .text-input {
     font-size: 18px;
     margin-bottom: 10px;
-    text-align: center; 
+    text-align: center;
 }
 
 .value-box {
@@ -29,7 +29,7 @@ body {
     border-radius: 5px;
     border: none;
     text-align: center;
-    width: 200px; 
+    width: 200px;
 }
 
 .timer-controls {
@@ -82,7 +82,8 @@ input[type="number"]:focus {
     border-color: #ddd;
 }
 
-html, body {
+html,
+body {
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -104,51 +105,53 @@ html, body {
     justify-content: space-around;
     font-size: 30px;
     background: transparent;
-    border-radius: 4.5px; 
+    border-radius: 4.5px;
     box-shadow: black;
     gap: 10px;
 }
 
 .presets {
     list-style: none;
-    text-align: center; 
-    padding: 0; 
+    text-align: center;
+    padding: 0;
     margin-bottom: 10px;
-    width: 150px; 
+    width: 150px;
     height: 40px;
 }
 
 .menu {
     display: none;
-    text-align: center; 
-    
+    text-align: center;
+
 }
 
 .menu-btn {
     display: block;
-    background: none;
+    background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-bottom: 10px; 
-    padding: 0;
 }
 
 .menu ul {
     list-style-type: none;
     padding: 0;
-    margin: 0 auto; 
+}
+
+.menu ul li {
+    margin-bottom: 10px;
 }
 
 .menu li {
-    margin: 0; 
+    margin: 0;
 }
+
 .menu li a {
     text-decoration: none;
     color: rgb(255, 0, 0);
 }
 
 .menu-btn svg {
-    fill: white; 
+    fill: white;
 }
 
 .menu button {
@@ -157,7 +160,7 @@ html, body {
     background-color: #333;
     color: #fff;
     padding: 0;
-    margin: 5px; 
+    margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
