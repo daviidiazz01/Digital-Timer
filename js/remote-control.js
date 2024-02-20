@@ -159,3 +159,33 @@ function toggleMenu() {
         menuList.style.flexDirection = 'row';
     }
 }
+var presets = {
+    'Oração': 10,
+    'Louvor': 25,
+    'Ministração': 50,
+    'Avisos': 15,
+};
+var buttons = document.querySelectorAll('.menu ul li button');
+
+buttons.forEach(function(button) {
+    var presetName = button.textContent;
+    button.textContent = presetName + ' (' + presets[presetName] + ')';
+    button.value = presets[presetName];
+});
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        var value = this.value;
+        document.getElementById('text-input-information').value = value;
+    });
+});
+
+if (menu.classList.contains('open')) {
+    menuClosedIcon.style.display = 'none';
+    menuOpenIcon.style.display = 'block';
+    menuList.style.flexDirection = 'column';
+} else {
+    menuClosedIcon.style.display = 'block';
+    menuOpenIcon.style.display = 'none';
+    menuList.style.flexDirection = 'row';
+}
