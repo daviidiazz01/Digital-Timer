@@ -135,13 +135,6 @@ function diminuirMinuto() {
         minutos.textContent = minutosAtual.toString().padStart(2, '0');
     }
 }
-function atualizarTempoInterno() {
-    const hr = parseInt(horas.textContent, 10);
-    const min = parseInt(minutos.textContent, 10);
-    const seg = parseInt(segundos.textContent, 10);
-
-    tempoTotal = hr * 3600 + min * 60 + seg;
-}
 
 function toggleMenu() {
     var menu = document.querySelector('.menu');
