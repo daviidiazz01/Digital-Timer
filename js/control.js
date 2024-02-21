@@ -190,3 +190,11 @@ document.getElementById('botao-relogio').addEventListener('click', function() {
         timerWindow.postMessage('fechar', '*');
     }
 });
+
+document.getElementById('botao-timer').addEventListener('click', function() {
+    
+    var timerWindow = window.open('timer.html');
+    if (timerWindow) {
+        timerWindow.postMessage('fechar', '*');
+    }
+});
