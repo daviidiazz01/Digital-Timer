@@ -183,3 +183,10 @@ buttons.forEach(function(button) {
     });
 });
 
+document.getElementById('botao-relogio').addEventListener('click', function() {
+    
+    var timerWindow = window.open('index.html');
+    if (timerWindow) {
+        timerWindow.postMessage('fechar', '*');
+    }
+});
