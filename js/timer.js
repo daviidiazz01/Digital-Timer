@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function openRemoteControl() {
 
-    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=550');
+    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=600');
 
     if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
         alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
@@ -158,6 +158,7 @@ document.getElementById('button-cronometro').addEventListener('click', function 
     window.close();
     window.open('index.html', '_blank');
 });
+
 
 
 

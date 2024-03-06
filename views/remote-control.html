@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style_remote.css">
+    <link rel="stylesheet" href="/css/style_remote.css">
     <link rel="icon" href="/img/dev-diaz-sfundo.png" type="image/x-icon">
     <title>Controle remoto- Davi Diaz</title>
 </head>
@@ -60,8 +60,8 @@
     </div>
 
     <div class="transition">
-        <button class="button-cronometro">Relógio</button>
-        <button class="button-cronometro">Temporizador</button>
+        <button class="button-cronometro" id="botao-relogio">Relógio</button>
+        <button class="button-cronometro" id="botao-timer">Temporizador</button>
     </div>
     <br>
     <div class="menu-btn" onclick="toggleMenu()">
@@ -86,10 +86,14 @@
         </nav>
     </div>
     </div>
+    <footer>
+        <p> © 2024  DAVI DIAZ </p>
+    </footer>
+    
 
-    <script src="js/common.js"></script>
-    <script src="js/remote-control.js"></script>
-    <script src="js/relogio.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/control.js"></script>
+    <script src="/js/relogio.js"></script>
 
 </body>
 
