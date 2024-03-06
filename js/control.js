@@ -126,6 +126,7 @@ function adicionarMinuto() {
     let minutosAtual = parseInt(minutos.textContent, 10);
     minutosAtual++;
     minutos.textContent = minutosAtual.toString().padStart(2, '0');
+    atualizarTempoTotal();
 }
 
 function diminuirMinuto() {
@@ -133,9 +134,18 @@ function diminuirMinuto() {
     if (minutosAtual > 0) {
         minutosAtual--;
         minutos.textContent = minutosAtual.toString().padStart(2, '0');
+        atualizarTempoTotal();
     }
 }
 
+function atualizarTempoTotal() {
+    const hr = parseInt(horas.textContent, 10);
+    const min = parseInt(minutos.textContent, 10);
+    const seg = parseInt(segundos.textContent, 10);
+
+    tempoTotal = (hr * 3600) + (min * 60) + seg;
+    reiniciarCronometro();
+}
 function toggleMenu() {
     var menu = document.querySelector('.menu');
     menu.classList.toggle('open');
@@ -163,29 +173,29 @@ var presets = {
 
 var buttons = document.querySelectorAll('.menu ul li button');
 
-buttons.forEach(function(button) {
+buttons.forEach(function (button) {
     var presetName = button.textContent;
     button.textContent = presetName;
     button.value = presets[presetName];
 });
 
-buttons.forEach(function(button) {
-    button.addEventListener('click', function() {
+buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
         var value = this.value;
         document.getElementById('text-input-information').value = value;
     });
 });
 
-document.getElementById('botao-relogio').addEventListener('click', function() {
-    
+document.getElementById('botao-relogio').addEventListener('click', function () {
+
     var timerWindow = window.open('index.html');
     if (timerWindow) {
         timerWindow.postMessage('fechar', '*');
     }
 });
 
-document.getElementById('botao-timer').addEventListener('click', function() {
-    
+document.getElementById('botao-timer').addEventListener('click', function () {
+
     var timerWindow = window.open('timer.html');
     if (timerWindow) {
         timerWindow.postMessage('fechar', '*');
