@@ -156,7 +156,7 @@ document.body.style.overflow = "hidden";
 document.getElementById('button-cronometro').addEventListener('click', function () {
 
     window.close();
-    window.open('index.html', '_blank');
+    window.open('../index.html', '_blank');
 });
 
 
