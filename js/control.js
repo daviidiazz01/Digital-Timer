@@ -7,17 +7,29 @@ document.addEventListener("DOMContentLoaded", function () {
     let blinkingInterval;
     let tempoTotal = 0;
 
-    function sendMessageToTimer(command, minutes) {
-        window.opener.postMessage({ command, minutes }, '*');
-    }
-
     document.getElementById('iniciar-cronometro-remote').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);
         if (!isNaN(minutosDefinidos)) {
             sendMessageToTimer('startCountdown', minutosDefinidos);
+            startCountdown(minutosDefinidos);
         }
-
     });
+
+    document.getElementById('add1min').addEventListener('click', function () {
+        const minutosDefinidos = parseInt(minutos.textContent) + 1;
+        sendMessageToTimer('startCountdown', minutosDefinidos);
+        startCountdown(minutosDefinidos);
+    });
+
+    document.getElementById('remove1min').addEventListener('click', function () {
+        const minutosDefinidos = parseInt(minutos.textContent) - 1;
+        sendMessageToTimer('startCountdown', minutosDefinidos);
+        startCountdown(minutosDefinidos);
+    });
+
+    function sendMessageToTimer(command, minutes) {
+        window.opener.postMessage({ command, minutes}, '*');
+    }
 
     document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
         reiniciarCronometro();
@@ -41,13 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
         atualizarTempo();
         tempoInput.value = '';
     }
-
-    document.getElementById('iniciar-cronometro-remote').addEventListener('click', function () {
-        const minutosDefinidos = parseInt(tempoInput.value);
-        if (!isNaN(minutosDefinidos)) {
-            startCountdown(minutosDefinidos);
-        }
-    });
 
     function startCountdown(minutes) {
         clearInterval(cronometro);
@@ -122,30 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 });
-function adicionarMinuto() {
-    let minutosAtual = parseInt(minutos.textContent, 10);
-    minutosAtual++;
-    minutos.textContent = minutosAtual.toString().padStart(2, '0');
-    atualizarTempoTotal();
-}
 
-function diminuirMinuto() {
-    let minutosAtual = parseInt(minutos.textContent, 10);
-    if (minutosAtual > 0) {
-        minutosAtual--;
-        minutos.textContent = minutosAtual.toString().padStart(2, '0');
-        atualizarTempoTotal();
-    }
-}
 
-function atualizarTempoTotal() {
-    const hr = parseInt(horas.textContent, 10);
-    const min = parseInt(minutos.textContent, 10);
-    const seg = parseInt(segundos.textContent, 10);
-
-    tempoTotal = (hr * 3600) + (min * 60) + seg;
-    reiniciarCronometro();
-}
 function toggleMenu() {
     var menu = document.querySelector('.menu');
     menu.classList.toggle('open');
