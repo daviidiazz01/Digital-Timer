@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.opener.postMessage({ message: 'tempoEsgotado' }, '*');
     }
    
+
 });
 function openRemoteControl() {
 
