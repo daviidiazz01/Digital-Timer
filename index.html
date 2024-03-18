@@ -3,29 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style_index.css">
-    <link rel="icon" href="img/dev-diaz-sfundo.png" type="image/x-icon">
-
-    <title>Relógio Digital</title>
+    <link rel="stylesheet" href="../css/style_timer.css">
+    <link rel="icon" href="../img/dev-diaz-sfundo.png" type="image/x-icon">
+    <title>Temporizador Digital</title>
 </head>
 
 <body>
-    <div class="relogio">
-        <div>
-            <span id="horas">00</span>
-            <span class="tempo">Horas</span>
-        </div>
-
-        <div>
-            <span id="minutos">00</span>
-            <span class="tempo">Minutos</span>
-        </div>
-
-        <div>
-            <span id="segundos">00</span>
-            <span class="tempo">Segundos</span>
+    <div class="Cronômetro">
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span class="tempo">Horas</span>
+            </div>
+            <div>
+                <span id="minutos">00</span>
+                <span class="tempo">Minutos</span>
+            </div>
+            <div>
+                <span id="segundos">00</span>
+                <span class="tempo">Segundos</span>
+            </div>
         </div>
     </div>
     <div class="menu-toggle">
@@ -35,12 +33,46 @@
     </div>
     <div class="menu-none">
         <nav class="menu">
-            <a href="views/timer.html">
-                <button class="menu-transition">Temporizador</button>
-            </a>
+            <div class="itens-menu"></div>
+            <ul>
+                <li><a href="#"></a>
+
+                    <div id="numberInput" class="hidden">
+                        <label for="timeInput">Digite o tempo desejado</label>
+                        <input type="number" id="timeInput" min="1" max="60">
+                    </div>
+                </li>
+                <li>
+                    <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
+                    <input class="value-box" type="number" id="text-input-information" placeholder="Digite o valor">
+                </li>
+                <li>
+                    <button id="iniciar-cronometro" class="button-cronometro">Iniciar</button>
+                </li>
+                <li>
+                    <button id="pausar-cronometro" class="button-cronometro">Pausar</button>
+                </li>
+                <li>
+                    <button id="zerar-cronometro" class="button-cronometro">Zerar</button>
+                </li>
+                <li>
+                    <a href="../index.html" class="button-link">
+                        <button class="button-cronometro">Relógio</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="button-link">
+                        <button id="Remote-Control" class="button-cronometro" onclick="openRemoteControl()">Controle
+                            Remoto</button>
+                    </a>
+                </li>
+
+            </ul>
         </nav>
     </div>
-    <script src="js/index.js"></script>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/common.js"></script>
 </body>
 
 </html>
