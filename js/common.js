@@ -88,27 +88,5 @@ function exemploFuncaoComum() {
 function inicializarComum() {
     tempoInput = document.getElementById('text-input-information');
     
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    menuToggle.addEventListener('click', () => {
-        menu.style.right = '0';
-    });
-
-    menu.addEventListener('mouseleave', () => {
-        menu.style.right = '-250px';
-    });
-    
-    // Adicione este bloco para fechar o menu quando passar o mouse fora
-    document.addEventListener('mouseover', (event) => {
-        const isMenuVisible = menu.style.right === '0';
-        const isMouseOutsideMenu = !event.target.closest('.menu') && !event.target.closest('.menu-toggle');
-
-        if (isMenuVisible && isMouseOutsideMenu) {
-            menu.style.right = '-250px';
-        }
-    });
 }
-
-document.addEventListener("DOMContentLoaded", inicializarComum);
 

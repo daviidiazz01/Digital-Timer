@@ -122,42 +122,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function alertarTemporizadorEncerrado() {
         window.opener.postMessage({ message: 'tempoEsgotado' }, '*');
     }
-    document.querySelector('.menu-toggle').addEventListener('mouseover', () => {
-        const menu = document.querySelector('.menu');
-        menu.style.right = '0px';
-    });
-
-    document.querySelector('.menu-toggle').addEventListener('mouseout', () => {
-        const menu = document.querySelector('.menu');
-        menu.style.right = '-250px';
-    });
-
-    document.querySelector('.menu-none').addEventListener('mouseover', () => {
-        const menu = document.querySelector('.menu');
-        menu.style.right = '0px';
-    });
-
-    document.querySelector('.menu-none').addEventListener('mouseout', () => {
-        const menu = document.querySelector('.menu');
-        menu.style.right = '-250px';
-    });
-
+   
 });
 function openRemoteControl() {
 
-    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=600');
+    const remoteControlWindow = window.open('views/remote-control.html', 'Controle Remoto', 'width=300, height=600');
 
     if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
         alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
     }
 }
 document.body.style.overflow = "hidden";
-
-document.getElementById('button-cronometro').addEventListener('click', function () {
-
-    window.close();
-    window.open('../index.html', '_blank');
-});
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "C" || event.key === "c") {
