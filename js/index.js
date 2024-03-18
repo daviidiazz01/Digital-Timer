@@ -8,6 +8,36 @@ document.addEventListener("DOMContentLoaded", function () {
     let cronometro;
     let blinkingInterval;
 
+    
+function iniciarCronometro(tempoDefinido) {
+    const minutosDefinidos = parseInt(tempoDefinido);
+    if (!isNaN(minutosDefinidos)) {
+        clearInterval(cronometro);
+        if (minutosDefinidos > 0) {
+            tempoTotal = minutosDefinidos * 60;
+            atualizarTempo();
+
+            cronometro = setInterval(function () {
+                if (tempoTotal > 0) {
+                    tempoTotal--;
+                    atualizarTempo();
+                } else {
+                    clearInterval(cronometro);
+                    iniciarBlinking();
+                    cronometro = setInterval(function () {
+                    }, 1000);
+                }
+            }, 1000);
+        } else if (minutosDefinidos === 0) {
+            tempoTotal = 0;
+            atualizarTempo();
+        } else if (minutosDefinidos === -1) {
+            clearInterval(cronometro);
+            pararBlinking();
+        }
+    }
+}
+
     function atualizarTempo() {
         const hr = Math.floor(tempoTotal / 3600);
         const min = Math.floor((tempoTotal % 3600) / 60);
@@ -44,6 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 
+    function zerarCronometro() {
+        clearInterval(cronometro);
+        pararBlinking();
+        tempoTotal = 0;
+        atualizarTempo();
+        tempoInput.value = '';
+    }
+
     function pararBlinking() {
         clearInterval(blinkingInterval);
         horas.classList.remove('blink');
@@ -53,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function piscaPisca() {
         let count = 0;
-        const maxCount = 5; 
+        const maxCount = 5;
         const interval = setInterval(function () {
             tempoInput.style.borderColor = (count % 2 === 0) ? 'red' : '';
             count++;
@@ -75,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(cronometro);
                 iniciarBlinking();
-                alertarTemporizadorEncerrado(); 
+                alertarTemporizadorEncerrado();
             }
         }, 1000);
 
@@ -122,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function alertarTemporizadorEncerrado() {
         window.opener.postMessage({ message: 'tempoEsgotado' }, '*');
     }
-   
+
 
 });
 function openRemoteControl() {
