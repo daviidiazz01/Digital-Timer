@@ -20,7 +20,7 @@ const relogio = setInterval(function time() {
 
 })
 document.addEventListener("keydown", function (event) {
-    if (event.key === "T" || event.key === "t") {
+    if (event.key === "T" || event.key === "c") {
         window.location.href = "views/timer.html";
     }
 });

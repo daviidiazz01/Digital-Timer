@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style_timer.css">
-    <link rel="icon" href="../img/dev-diaz-sfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style_index.css">
+    <link rel="icon" href="img/dev-diaz-sfundo.png" type="image/x-icon">
     <title>Temporizador Digital</title>
 </head>
 
@@ -26,53 +26,27 @@
             </div>
         </div>
     </div>
-    <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+    <div class="">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
+            <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
+            <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
+          </svg>
+        </div>
     </div>
     <div class="menu-none">
-        <nav class="menu">
-            <div class="itens-menu"></div>
-            <ul>
-                <li><a href="#"></a>
-
-                    <div id="numberInput" class="hidden">
-                        <label for="timeInput">Digite o tempo desejado</label>
-                        <input type="number" id="timeInput" min="1" max="60">
-                    </div>
-                </li>
-                <li>
-                    <label class="text-input" for="text-input-information">Digite aqui o valor!</label>
-                    <input class="value-box" type="number" id="text-input-information" placeholder="Digite o valor">
-                </li>
-                <li>
-                    <button id="iniciar-cronometro" class="button-cronometro">Iniciar</button>
-                </li>
-                <li>
-                    <button id="pausar-cronometro" class="button-cronometro">Pausar</button>
-                </li>
-                <li>
-                    <button id="zerar-cronometro" class="button-cronometro">Zerar</button>
-                </li>
-                <li>
-                    <a href="../index.html" class="button-link">
-                        <button class="button-cronometro">Relógio</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="button-link">
-                        <button id="Remote-Control" class="button-cronometro" onclick="openRemoteControl()">Controle
-                            Remoto</button>
-                    </a>
-                </li>
-
-            </ul>
-        </nav>
+       <nav class="menu">
+        <button>
+            <a href="views/relogio.html">Relógio</a>
+        </button>
+        <button>
+            <a href="/views/relogio.html">Relógio</a>
+        </button>
+       </nav>
     </div>
 
-    <script src="../js/index.js"></script>
-    <script src="../js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>

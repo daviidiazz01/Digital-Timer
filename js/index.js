@@ -159,6 +159,12 @@ document.getElementById('button-cronometro').addEventListener('click', function 
     window.open('../index.html', '_blank');
 });
 
+document.addEventListener("keydown", function (event) {
+    if (event.key === "C" || event.key === "c") {
+        window.location.href = "views/remote-control.html";
+    }
+});
+
 
 
 

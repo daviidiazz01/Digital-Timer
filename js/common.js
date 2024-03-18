@@ -59,7 +59,6 @@ function iniciarCronometro(tempoDefinido) {
                 }
             }, 1000);
         } else if (minutosDefinidos === 0) {
-            // Lógica para zerar o cronômetro
             tempoTotal = 0;
             atualizarTempo();
         } else if (minutosDefinidos === -1) {

@@ -1,22 +1,21 @@
 
-@media screen and (max-width: 768px){
-    
-}
 
 * {
-    margin: none;
+    margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    
+    box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
+     font-family: 'Open Sans', sans-serif;
+    height: 90vh;
     background-color:black;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    margin: 0;
+    overflow-x: hidden;
+    
 }
 
 .relogio {
@@ -26,7 +25,7 @@ body {
     height: 700px; 
     background: transparent;
     border-radius: 4.5px; 
-    box-shadow:black;
+    box-shadow: black;
 
 }
 
@@ -50,19 +49,10 @@ body {
 .relogio span {
     font-weight: bolder;
     font-size: 180px;
-
 }
 
 .relogio span.tempo {
     font-size: 20px;
-}
-
-.button-c {
-    position: absolute;
-    right: 10PX;
-    bottom: 10px;
-    border: none;
-    border-radius: 3px;
 }
 
 .menu-transition {
@@ -81,6 +71,7 @@ body {
     background-color: gray;
     color: black;
 }
+
 .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -111,16 +102,95 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 20px;
 }
 
 .menu ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .menu li {
+    padding: 10px;
+    text-align: center;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
     margin-bottom: 10px;
 }
+
+.button-cronometro {
+    background-color: black;
+    color: white;
+    margin: 5px;
+    border: none;
+    width: 80%;
+    border-radius: 5px;
+    justify-content: center;
+    height: 23px;
+    width: 120px;
+    cursor: pointer;
+}
+.button-cronometro:hover {
+    background-color: gray;
+    color: black;
+}
+
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+.text-input {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    border: none;
+  }
+.value-box {
+    width: 120px;
+    height: 23px;
+    background-color: #ccc;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.value-box:hover {
+    background-color: #b7b5b5;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.hidden {
+    display: none;
+  }
+  .blink {
+    animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+    0%, 100% {
+        color: inherit;
+    }
+    50% {
+        color: red;
+    }
+}
+
+
