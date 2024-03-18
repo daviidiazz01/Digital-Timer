@@ -10,6 +10,10 @@ body {
     margin-top: 10px;
 }
 
+.open {
+    display: block !important;
+}
+
 .input-values {
     display: flex;
     align-items: center;
