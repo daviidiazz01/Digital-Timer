@@ -27,32 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
         startCountdown(minutosDefinidos);
     });
 
-    function sendMessageToTimer(command, minutes) {
-        window.opener.postMessage({ command, minutes}, '*');
-    }
-
     document.getElementById('zerar-cronometro-remote').addEventListener('click', function () {
-        reiniciarCronometro();
-        sendMessageToTimer('resetCountdown', 0);
-    });
-
-    document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
-        pausarCronometro();
-        sendMessageToTimer('pauseCountdown', 0);
-    });
-
-    function pausarCronometro() {
-        clearInterval(cronometro);
-        pararBlinking();
-    }
-
-    function reiniciarCronometro() {
         clearInterval(cronometro);
         pararBlinking();
         tempoTotal = 0;
         atualizarTempo();
         tempoInput.value = '';
+        sendMessageToTimer('resetCountdown', 0);
+    });
+
+    document.getElementById('pausar-cronometro-remote').addEventListener('click', function () {
+        clearInterval(cronometro);
+        pararBlinking();
+        sendMessageToTimer('pauseCountdown', 0);
+    });
+    
+    function sendMessageToTimer(command, minutes) {
+        window.opener.postMessage({ command, minutes}, '*');
     }
+
 
     function startCountdown(minutes) {
         clearInterval(cronometro);
