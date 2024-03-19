@@ -166,12 +166,7 @@ function iniciarCronometro(tempoDefinido) {
 function openRemoteControl() {
 
     const remoteControlWindow = window.open('views/remote-control.html', 'Controle Remoto', 'width=300, height=600');
-
-    if (!remoteControlWindow || remoteControlWindow.closed || typeof remoteControlWindow.closed === 'undefined') {
-        alert('A janela pop-up foi bloqueada. Por favor, habilite pop-ups para abrir o Controle Remoto.');
-    }
 }
-document.body.style.overflow = "hidden";
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "C" || event.key === "c") {
