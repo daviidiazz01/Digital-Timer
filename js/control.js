@@ -210,3 +210,16 @@ document.getElementById('botao-timer').addEventListener('click', function () {
         timerWindow.postMessage('fechar', '*');
     }
 });
+
+
+document.getElementById("iniciar-cronometro-remote").addEventListener("click", function () {
+    var inputValue = document.getElementById("text-input-information").value.trim();
+    var errorMessage = document.getElementById("errorMessage");
+
+    if (inputValue === "") {
+        errorMessage.textContent = "Digite um valor.";
+    } else {
+        errorMessage.textContent = "";
+        startCountdown(inputValue);
+    }
+});
