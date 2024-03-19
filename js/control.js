@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const tempoInput = document.getElementById('text-input-information');
     const horas = document.getElementById('horas');
     const minutos = document.getElementById('minutos');
     const segundos = document.getElementById('segundos');
+    const tempoInput = document.getElementById('text-input-information');
+
+    let tempoTotal = 0;
     let cronometro;
     let blinkingInterval;
-    let tempoTotal = 0;
+
 
     document.getElementById('iniciar-cronometro-remote').addEventListener('click', function () {
         const minutosDefinidos = parseInt(tempoInput.value);

@@ -170,9 +170,11 @@ function openRemoteControl() {
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "C" || event.key === "c") {
-        window.location.href = "views/remote-control.html";
+        window.open("views/remote-control.html", "_blank", "width=300,height=600");
     }
 });
+
+
 
 
 
