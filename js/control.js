@@ -217,7 +217,8 @@ document.getElementById("iniciar-cronometro-remote").addEventListener("click", f
     var errorMessage = document.getElementById("errorMessage");
 
     if (inputValue === "") {
-        errorMessage.textContent = "Digite um valor.";
+        errorMessage.textContent = "PARA INICIAR DIGITE UM VALOR";
+        errorMessage.style.color = "red";
     } else {
         errorMessage.textContent = "";
         startCountdown(inputValue);
