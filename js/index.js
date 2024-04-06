@@ -165,12 +165,12 @@ function iniciarCronometro(tempoDefinido) {
 });
 function openRemoteControl() {
 
-    const remoteControlWindow = window.open('views/remote-control.html', 'Controle Remoto', 'width=300, height=600');
+    const remoteControlWindow = window.open('./remote-control.html', 'Controle Remoto', 'width=300, height=600');
 }
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "C" || event.key === "c") {
-        window.open("views/remote-control.html", "_blank", "width=300,height=600");
+        window.open("./remote-control.html", "_blank", "width=300,height=600");
     }
 });
 
